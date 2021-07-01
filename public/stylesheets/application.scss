@@ -1,0 +1,32 @@
+@import url("weather-icons.min.css");
+@import url("weather-icons-wind.min.css");
+@import url('font-awesome/css/font-awesome.min.css');
+@import url('jquery.mobile-1.4.2.min.css');
+@import url('jqm-datebox-1.4.2.min.css');
+@import url('mapbox-2.2.1.css');
+@import url('awesome-markers/leaflet.awesome-markers.css');
+@import url('leaflet-markercluster/MarkerCluster.css');
+@import url('leaflet-markercluster/MarkerCluster.Default.css');
+@import url('leaflet-draw/leaflet.draw.css');
+@import url('L.Control.Sidebar.css');
+
+@import url('style.css');
+
+
+* {
+  /*-webkit-user-select: none;  /* Disable selection/copy of elements when tapping for a long time */
+  -webkit-touch-callout: none; /* Disable touch callouts */
+}
+
+input {
+  -webkit-user-select: text;  /* Allow selection for input elements */
+}
+
+.content-padded {
+  padding: 10px;
+}
+
+.personListContainer .ui-listview-filter {
+    margin: 0;
+    background: none;
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf8">
+    <script>
+        TITLE = "<%= title %>";
+    </script>
+
+    <link rel = "stylesheet" href = "/stylesheets/application.css" />
+
+    <script src = "/javascripts/concat.js"></script>
+
+    <!--jQuery Mobile has to be included after app scripts because it will execute the mobileinit handler immediately upon inclusion-->
+    <script src = "/javascripts/jquery.mobile-1.4.2.min.js"></script>
+    <script src = "/javascripts/jqm-datebox.calbox-1.4.2.js"></script>
+    <!--<script src = "/javascripts/jquery.mobile.datebox.i18n.en-GB.utf8.js"></script>-->
+    <script src = "/javascripts/chart.js"></script> <!-- Chart.js doesn't work under Browserify (a bug?) -->
+</head>
+
+<body>
+<div data-role = "page" id = "loginPage">
+    <div data-role = "header"><h1></h1></div>
+    <div class="ui-content" role="main">
+        <label for = "email">Email:</label>
+        <input id = "email" class = "email" type = "email">
+
+        <label for = "password">Password:</label>
+        <input id = "password" class = "password" type = "password">
+
+        <a class = "loginButton ui-btn ui-corner-all ui-shadow" href = "#">Login</a>
+    </div>
+</div>
+
+<div data-role = "page" id = "selectProjectPage">
+    <div data-role = "header"><h1></h1></div>
+    <div class="ui-content" role="main">
+        <ul class = "projectList" data-role = "listview" data-inset = "true"></ul>
+    </div>
+    <div class = "customerLogo"></div>
+</div>
+
+<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id = "menuPanel">
+</div>
+
+<div data-role = "page" id = "selectReportPage">
+    <div data-role = "header"><h1></h1></div>
+    <div class="ui-content" role="main">
+        <ul class = "reportList" data-role = "listview" data-inset = "true"></ul>
+        <div class = "customerLogo"></div>
+    </div>
+</div>
+
+<div data-role = "page" id = "reportPage">
+    <div data-role = "header"><h1></h1></div>
+    <div class="ui-content" role="main">
+        <div class = "controls"></div>
+
+        <div class = "report"></div>
+    </div>
+</div>
+
+<div data-role = "page" id = "mapPage">
+    <div data-role = "header"><h1></h1></div>
+    <div class="ui-content" role="main">
+        <div id="usersList"></div>
+        <div id="mapContainer"></div>
+        <div class="geometryList"></div>
+    </div>
+</div>
+
+<div data-role = "page" id = "timelinePage">
+    <div data-role = "header"><h1></h1></div>
+
+    <div class="ui-content" role="main">
+        <div id="timelineUsersList"></div>
+        <div id="timelineMapContainer"></div>
+        <div class="controlPanel leaflet-bar">
+                <div style="width: 10%; height: 100%; float: left;">
+                    <button class="playBtn ui-btn ui-mini ui-corner-all ui-shadow">Play</button>
+                </div>
+                <div style="width: 10%; height: 100%; float: right;">
+                    <select class="speedSelector" data-mini="true">
+                        <option value="1" >1x</option>
+                        <option value="2" >2x</option>
+                        <option value="5" >5x</option>
+                        <option value="10">10x</option>
+                    </select>
+                </div>
+                <div class="timeline">
+                    <span class="timeMarker"></span>
+                    <span class="hoverMarker"></span>
+                </div>
+                <div class="timelineLabels">
+                    <span class="startTimeLabel"> </span>
+                    <span class="finishTimeLabel"> </span>
+                    <span class="currentTimeLabel"> </span>
+                </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div data-role = "page" id = "pavingPage">
+    <div data-role = "header"><h1></h1></div>
+    <div class="ui-content" role="main">
+        <div id="pavingUserList"></div>
+        <div id="pavingMapContainer"></div>
+    </div>
+    <div id="pavingControlPanel">
+        <div class="truckInfo"></div>
+        <hr/>
+        <div class="batchPlantInfo"></div>
+        <hr/>
+        <div class="paverInfo"></div>
+        <hr/>
+    </div>
+</div>
+
+<div data-role = "page" id = "usersPage">
+    <div data-role = "header"></div>
+    <div class = "usersPageContent"></div>
+</div>
+
+<div data-role="page" id="settingsPage">
+    <div data-role="header"></div>
+    <div data-role="content">
+        <form>
+            <fieldset data-role = "controlgroup" data-type = "horizontal">
+                <legend>Map type</legend>
+                <input type = "radio" name = "radioMap" id = "radioMap" value = "map" />
+                <label for = "radioMap">Street map</label>
+                <input type = "radio" name = "radioSatellite" id = "radioSatellite" value = "satellite" />
+                <label for = "radioSatellite">Satellite</label>
+            </fieldset>
+        </form>
+        <div data-role="collapsible" style = "margin-top: 2em">
+            <h2>Copyright information</h2>
+            <div class="copyrightContent"></div>
+            <div class="attribution">
+                <p>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from
+                    <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by
+                    <a href="http://creativecommons.org/licenses/by/3.0/"
+                       title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+            </div>
+       </div>
+    </div>
+</div>
+
+</body>
+</html>

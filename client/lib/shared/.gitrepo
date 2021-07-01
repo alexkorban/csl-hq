@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@git.assembla.com:foreman.safesite-lib.git
+	branch = al-redux-actions-checker
+	commit = 02a81ae6c30bf2cd301fed9721c54373392b6c7b
+	parent = 7b651f0c1e34c5317dd386155e205b26112dad2d
+	cmdver = 0.3.0

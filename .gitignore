@@ -1,0 +1,13 @@
+.DS_Store
+.env
+.idea/
+node_modules/
+.sass-cache/
+app.js
+routes/*.js
+client/**/*.js
+client/**/*.map
+public/stylesheets/application.css*
+public/stylesheets/style.css*
+public/stylesheets/L.Control.Sidebar.css
+public/javascripts/concat.js

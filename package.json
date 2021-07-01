@@ -1,0 +1,63 @@
+{
+    "name": "safesite-hq",
+    "version": "1.0.0",
+    "description": "SafeSite HQ server wrapper",
+    "private": true,
+    "engines": {
+        "node": "6.9.1"
+    },
+    "scripts": {
+        "compile-scss": "node-sass --output-style compact -o public/stylesheets public/stylesheets",
+        "compile-coffee": "coffee -c app.coffee routes",
+        "compile-coffee-client": "browserify -v -t coffeeify --extension=\".coffee\" client/app.coffee -o public/javascripts/concat.js",
+        "count-lines": "cloc --exclude-dir node_modules,.sass-cache --exclude-ext=js .",
+        "deploy-prod": "heroku pipelines:promote && git tag `date +\"v%Y-%m-%d\"` && git push origin master --tags && npm run smoke-test csl-safesitehq.herokuapp.com",
+        "deploy-staging": "git push staging master && npm run smoke-test csl-safesitehq-staging.herokuapp.com",
+        "lint": "coffeelint *.coffee *.coffee **/*.coffee **/**/*.coffee client/lib/controls/*.coffee",
+        "local": "heroku local nodemon",
+        "postinstall": "npm run compile-coffee & npm run compile-coffee-client & npm run compile-scss",
+        "smoke-test": "clean-console -i",
+        "start": "node app.js",
+        "test": "mocha -R spec",
+        "watch": "chokidar public/stylesheets/*.scss *.coffee **/*.coffee **/**/*.coffee **/**/**/*.coffee -p -c \"npm run lint & npm run postinstall\""
+    },
+    "main": "app.js",
+    "dependencies": {
+        "bluebird": "2.9.24",
+        "browserify": "^11.2.0",
+        "coffee-script": "1.11.0",
+        "coffeeify": "^1.1.0",
+        "date-utils": "1.2.15",
+        "ejs": "*",
+        "express": "3.4.8",
+        "express-namespace": "0.1.1",
+        "flyd": "0.1.15",
+        "inflection": "1.3.5",
+        "jquery": "2.1.1",
+        "json2csv": "3.7.0",
+        "leaflet-awesome-markers": "git://github.com/SupremumLimit/Leaflet.awesome-markers.git#2.0/develop",
+        "leaflet-draw": "0.2.3",
+        "leaflet-hash": "0.2.1",
+        "leaflet.markercluster": "0.4.0",
+        "mapbox.js": "2.2.2",
+        "moment": "2.10.6",
+        "moment-range": "2.2.0",
+        "moment-timezone": "0.4.1",
+        "node-sass": "^3.3.3",
+        "ramda": "0.22.1",
+        "redux": "3.0.4",
+        "redux-batched-actions": "0.1.1",
+        "reselect": "2.0.0",
+        "turf": "2.0.2"
+    },
+    "devDependencies": {
+        "chokidar-cli": "^1.2.0",
+        "clean-console": "^0.3.0",
+        "coffeelint": "^1.15.0",
+        "expect.js": "^0.2.0",
+        "mocha": "^1.13.0",
+        "nodemon": "^1.8.1",
+        "phantomjs-prebuilt": "^2.1.7",
+        "watchify": "^3.6.1"
+    }
+}
